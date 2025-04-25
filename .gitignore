@@ -1,1 +1,14 @@
 data
+word2vec.py
+model/__pycache__/dataset.cpython-311.pyc
+model/__pycache__/encoder.cpython-311.pyc
+model/__pycache__/model.cpython-311.pyc
+model/__pycache__/process_data.cpython-311.pyc
+model/embeddings/GoogleNews-vectors-negative300.bin
+model/embeddings/GoogleNews-vectors-negative300.bin.gz
+model/wandb/run-20250424_121141-gj69ciu7/run-gj69ciu7.wandb
+model/wandb/run-20250424_121141-gj69ciu7/files/output.log
+model/wandb/run-20250424_121141-gj69ciu7/files/wandb-metadata.json
+model/wandb/run-20250424_121141-gj69ciu7/files/wandb-summary.json
+model/wandb/run-20250424_121141-gj69ciu7/logs/debug-internal.log
+model/wandb/run-20250424_121141-gj69ciu7/logs/debug.log
