@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader
 import torch.nn.functional as F
 import model
 import wandb
-# from dataset import MSMARCO
+from dataset import MSMARCO
 import dataset
 from datasets import load_dataset
 
