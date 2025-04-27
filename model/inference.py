@@ -28,7 +28,7 @@ for doc_id, doc_text in doc_id_to_text.items():
         # print(f"embedding: {emb}")
     doc_embeddings.append(emb)
     doc_ids.append(doc_id)
-    break
+    # break
 
 doc_embeddings = torch.cat(doc_embeddings, dim=0)  # shape (num_docs, 300)
 
@@ -40,6 +40,7 @@ def get_top_k(query_text, k=5):
 
     # Compute cosine similarities
     similarities = F.cosine_similarity(query_embedding, doc_embeddings)
+    k = min(k, similarities.size(0))
 
     # Get top-k indices
     top_k_indices = torch.topk(similarities, k).indices

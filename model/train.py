@@ -11,7 +11,7 @@ wandb.init(
     project="msmarco-dual-encoder",
     config={
         "learning_rate": 0.001,
-        "epochs": 50,
+        "epochs": 150,
         "batch_size": 32,
         "margin": 0.2,
     },
@@ -24,7 +24,8 @@ train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 
 query_tower = model.QueryTower()
 doc_tower = model.DocumentTower()
-
+query_tower.load_state_dict(torch.load("./saved_models/query_tower.pt"))
+doc_tower.load_state_dict(torch.load("./saved_models/doc_tower.pt"))
 query_tower.train()
 doc_tower.train()
 
@@ -32,7 +33,7 @@ optimizer = torch.optim.Adam(
     list(query_tower.parameters()) + list(doc_tower.parameters()), lr=0.001
 )
 
-num_epochs = 20
+num_epochs = 150
 margin = torch.tensor(0.2)
 for epoch in range(num_epochs):
     total_loss = 0.0

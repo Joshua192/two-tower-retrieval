@@ -2,12 +2,16 @@ import pickle
 from gensim.utils import simple_preprocess
 import numpy as np
 import pandas as pd
-from gensim.models import KeyedVectors
 import argparse
+import os
+from gensim.models import KeyedVectors
 
-model = KeyedVectors.load_word2vec_format(
-    "embeddings/GoogleNews-vectors-negative300.bin", binary=True
-)
+base_dir = os.path.dirname(__file__)
+embedding_path = os.path.join(base_dir, "embeddings/GoogleNews-vectors-negative300.bin")
+
+print("Loading embeddings from:", embedding_path)
+
+model = KeyedVectors.load_word2vec_format(embedding_path, binary=True)
 
 
 def sentence_to_w2v(sentence):

@@ -1,13 +1,20 @@
 import torch
 import pickle
+from datasets import load_dataset
 import pandas as pd
+import pathlib
+import os
+
 
 class MSMARCO(torch.utils.data.Dataset):
     def __init__(
         self,
         split,
     ):
-        file_path = "../data/triplets_{split}.tsv"
+        base_dir = os.path.dirname(__file__)
+        file_path = os.path.join(base_dir, f"../data/triplets_{split}.tsv")
+        # file_path = f"C:\\Users\\Joshua\\Desktop\\Computer-Science-Courses\\Machine-Learning-Institute\\two-tower-retrieval\\data\\triplets_{split}.tsv"
+        # print(pathlib.Path(file_path).is_file())
         self.triplets_df = pd.read_csv(file_path, sep="\t")
         # self.triplets_df = self.triplets_df.to_pandas()
         self.encoded_queries = pickle.load(open(f"../data/encoded_queries_{split}.pkl", "rb"))
